@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/DmPe91/randomquote_backend#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-validator": "^7.0.1",
     "mongoose": "^7.4.2",

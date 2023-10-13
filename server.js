@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 import { validationResult } from "express-validator";
 import { quoteValidator } from "./validatior/addQuote.js";
 import QuoteModel from "./models/Quote.js";
@@ -15,7 +16,6 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-
 app.post("/posts", quoteValidator, async (req, res) => {
   try {
     const errors = validationResult(req);
