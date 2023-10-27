@@ -6,9 +6,7 @@ import { quoteValidator } from "./validatior/addQuote.js";
 import QuoteModel from "./models/Quote.js";
 
 mongoose
-  .connect(
-    "mongodb+srv://Dmitry:Fgjcnjk1991@cluster0.9ojel40.mongodb.net/posts?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("mongo ok"))
   .catch((err) => console.log("mongo error", err));
 
@@ -46,7 +44,9 @@ app.get("/quotes", async (req, res) => {
   }
 });
 
-app.listen(1991, (err) => {
+const port = process.env.PORT || 1991;
+
+app.listen(port, (err) => {
   if (err) {
     return console.log(err);
   }
